@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Schedule</title>
+<style>
+
+body {
+	background-color: lightblue;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Create a Schedule</h2>
+<form th:object="${newSchedule}" th:action="@{/updateSchedule/{id}(id=${newSchedule.id})}" method=POST>
+<select th:each="currentCourse : ${courses}" th:field="*{courses}">
+<option th:each="course : ${courses}" th:text="${course.Name}" th:value="${course.id}">
+</select>
+Student Name: <input name="studentName" size="20" th:field="*{studentName}"> <br/>
+Year: <input name="year" size="20" th:field="*{year}"> <br/>
+<input name="submit" type="submit" value="Add Course"/>
+</form>
+</div>
+</body>
+</html>

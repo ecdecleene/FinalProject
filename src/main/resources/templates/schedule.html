@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Schedule</title>
+<style>
+
+body {
+	background-color: lightblue;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Your Schedule</h2>
+<form>
+<table class="table table-hover">
+<tr th:each="schedule : ${schedule}">
+	<td th:text="${schedule.studentName}"/>
+	<td th:text="${schedule.year}"/>
+</tr>
+<tr th:each="course : ${schedule.courses}">
+	<td th:text="${course.courseName}" />
+	<td th:text="${course.courseNum}"/>
+	<td th:text="${course.teacherName}"/>
+	<td th:text="${course.gpa}"/>
+	<td th:text="${course.grade}"/>
+	<td th:text="${course.subject}"/>
+	<td th:text="${course.startTime}"/>
+	<td th:text="${course.endTime}"/>
+	<td th:text="${course.roomNum}"/>
+</tr>
+</table>
+</form>
+</div>
+<a href="index.html">Home</a>
+</body>
+</html>

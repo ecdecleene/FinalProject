@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Courses</title>
+<style>
+
+body {
+	background-color: lightblue;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Your Courses</h2>
+<form>
+<table class="table table-hover">
+<tr th:each="currentCourse : ${courses}">
+	<td th:text="${currentCourse.id}"/>
+	<td th:text="${currentCourse.courseName}"/>
+	<td th:text="${currentCourse.courseNum}"/>
+	<td th:text="${currentCourse.teacherName}"/>
+	<td th:text="${currentCourse.gpa}"/>
+	<td th:text="${currentCourse.grade}"/>
+	<td th:text="${currentCourse.subject}"/>
+	<td th:text="${currentCourse.startTime}"/>
+	<td th:text="${currentCourse.endTime}"/>
+	<td th:text="${currentCourse.roomNum}"/>
+	<td th:text="${currentCourse.status}"/>
+	<td><a th:href="@{/edit/{id}(id=${currentCourse.id})}">Edit</a></td>
+	<td><a th:href="@{/delete/{id}(id=${currentCourse.id})}">Delete</a></td>
+</tr>
+</table>
+</form>
+</div>
+<div class="container">
+<a href="../addCourse">Add Course</a>
+<a href="index.html">Home</a>
+</div>
+</body>
+</html>
